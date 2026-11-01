@@ -5,11 +5,11 @@ inputs:
   wasm-bindgen-version:
     description: wasm-bindgen-cli version (must match the wasm-bindgen crate)
     required: false
-    default: 0.2.127
+    default: 0.2.129
   binaryen-version:
     description: binaryen release tag (provides wasm-opt)
     required: false
-    default: version_132
+    default: version_133
 
 runs:
   using: composite

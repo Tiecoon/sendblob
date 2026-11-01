@@ -1,0 +1,19 @@
+services:
+  sendblob:
+    image: ${SENDBLOB_IMAGE:-sendblob:latest}
+    ports:
+      - "127.0.0.1:8080:8080"
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 32m
+    cpus: 0.50
+    pids_limit: 16
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "1m"
+        max-file: "2"

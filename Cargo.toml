@@ -26,25 +26,25 @@ data-encoding = "2.8.0"
 # iroh's rand 0.10 (getrandom 0.4) on wasm32 (without it the crate
 # fails to compile on wasm32-unknown-unknown).
 getrandom = { version = "0.4", features = ["wasm_js"] }
-# Versions pinned to the known-good set of the n0-computer/iroh-examples/browser-blobs example
+# Keep the blobs fork and its bao-tree/iroh-io API versions together.
 iroh = { version = "1.0.0", default-features = false, features = ["tls-ring"] }
 iroh-blobs = { version = "0.103", default-features = false }
 iroh-io = "0.6"
 irpc = { version = "0.17", default-features = false, features = ["spans", "stream", "derive", "varint-util"] }
 range-collections = "0.4"
-js-sys = "0.3.77"
+js-sys = "=0.3.106"
 n0-future = "0.3"
 tokio = { version = "1.44", default-features = false, features = ["sync"] }
 tracing = "0.1.40"
 tracing-subscriber = { version = "0.3.18", features = ["env-filter"] }
 tracing-subscriber-wasm = "0.1.0"
-wasm-bindgen = "=0.2.127"
-wasm-bindgen-futures = "0.4"
+wasm-bindgen = "=0.2.129"
+wasm-bindgen-futures = "=0.4.79"
 
-# OPFS backend (browser only). Version pinned to the exact pairing
-# with wasm-bindgen =0.2.127 already present in the tree.
+# OPFS backend (browser only). Keep the bindings paired with wasm-bindgen
+# and the CLI version in .github/actions/setup-wasm/action.yml.
 [target.'cfg(target_arch = "wasm32")'.dependencies]
-web-sys = { version = "0.3.99", features = [
+web-sys = { version = "=0.3.106", features = [
   "FileSystemDirectoryHandle",
   "FileSystemFileHandle",
   "FileSystemGetDirectoryOptions",
